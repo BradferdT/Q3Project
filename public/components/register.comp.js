@@ -1,6 +1,6 @@
 angular.module('blackJack')
 .component('registerComp', {
-  template: 'RegisterComp',
+  templateUrl: 'views/register.view.html',
   controller: controller
 })
 

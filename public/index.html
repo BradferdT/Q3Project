@@ -14,13 +14,21 @@
 
     <!-- Angular Material Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="/style/header.css">
     <base href="/"/>
+    <link rel="stylesheet" href="/style/master.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
   </head>
   <body>
-
+    <div class="container-fluid">
+    <div layout="row" layout-align="center center" class="header">
+      <div class="logo">BlackJack</div>
+    </div>
     <ui-view></ui-view>
 
-
+  </div>
     <!-- link config -->
     <script src="config/module.config.js"></script>
     <!-- link comps -->
