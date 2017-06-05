@@ -1,4 +1,4 @@
-angular.module('leaderboardComp')
+angular.module('blackJack')
 .component('leaderboardComp', {
   template: 'LeaderBoard Comp',
   controller: controller
