@@ -1,0 +1,29 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "description": "blackjack_game_by_brad_transtrum",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
+    "knex": "^0.13.0",
+    "pg": "^6.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BradferdT/Q3Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BradferdT/Q3Project/issues"
+  },
+  "homepage": "https://github.com/BradferdT/Q3Project#readme"
+}
