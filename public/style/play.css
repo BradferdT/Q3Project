@@ -1,0 +1,26 @@
+.play_row_height{
+  height: 75%;
+  width: 100%;
+  margin-top: 10px;
+  background-color: red;
+}
+
+.dealer{
+  height: 37.5%;
+  background-color: green;
+}
+
+.player{
+  height: 37.5%;
+  background-color: blue;
+}
+
+.play_buttons{
+  height: 23%;
+  text-align: center;
+  /*background-color: yellow;*/
+}
+
+.play_text{
+  text-align: center;
+}

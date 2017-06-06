@@ -4,7 +4,17 @@
     <meta charset="utf-8">
     <title>G47 BlackJack</title>
     <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="/style/header.css">
+    <base href="/"/>
+    <link rel="stylesheet" href="/style/master.css">
+    <link rel="stylesheet" href="/style/register.css">
+    <link rel="stylesheet" href="/style/leaderboard.css">
+    <link rel="stylesheet" href="/style/play.css">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
@@ -14,14 +24,6 @@
 
     <!-- Angular Material Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-    <!-- Personal CSS -->
-    <link rel="stylesheet" href="/style/header.css">
-    <base href="/"/>
-    <link rel="stylesheet" href="/style/master.css">
-    <link rel="stylesheet" href="/style/register.css">
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
   </head>
   <body>
     <div class="container-fluid">
@@ -29,7 +31,7 @@
       <div class="logo">BlackJack</div>
     </div>
     <ui-view></ui-view>
-
+    <leaderboard-comp></leaderboard-comp>
   </div>
     <!-- link config -->
     <script src="config/module.config.js"></script>

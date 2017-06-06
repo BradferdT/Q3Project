@@ -1,6 +1,6 @@
 angular.module('blackJack')
 .component('leaderboardComp', {
-  template: 'LeaderBoard Comp',
+  templateUrl: 'views/leaderboard.view.html',
   controller: controller
 })
 

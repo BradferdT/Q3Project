@@ -1,0 +1,40 @@
+<div class="middle">
+
+  <section layout="row" class="dealer" layout-align="center center" layout-nowrap>
+      <div flex>
+        test
+      </div>
+      <div flex="20" class="play_text">
+        Dealer
+      </div>
+    </section>
+
+    <section layout="row" class="player" layout-align="center center" layout-wrap>
+      <div flex>
+        test
+      </div>
+      <div flex="20" class="play_text">
+        Player
+      </div>
+    </section>
+
+    <section layout="row" class="play_buttons" layout-align="center center" layout-wrap>
+      <div flex="80">
+        <md-button ng-disabled="$ctrl.hitButton" class="md-raised md-primary">Hit</md-button>
+        <md-button class="md-fab md-primary" ng-disabled="$ctrl.bet25Bool" ng-click="$ctrl.bet25">
+          $25
+        </md-button>
+        <md-button class="md-fab md-primary" ng-disabled="$ctrl.bet50Bool" ng-click="$ctrl.bet50">
+          $50
+        </md-button><md-button class="md-fab md-primary" ng-disabled="$ctrl.bet100Bool" ng-click="$ctrl.bet100">
+          $100
+        </md-button>
+        <md-button ng-disabled="$ctrl.standButton" class="md-raised md-primary">Stand</md-button>
+
+      </div>
+      <div flex="20" class="play_text">
+        $Current Balance
+      </div>
+    </section>
+
+  </div>

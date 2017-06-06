@@ -13,9 +13,13 @@ app.use(cookieParser('erqweproijajlsfasdjjjj'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/register', require('./routes/register'));
+app.use('/task', require('./routes/task'));
+
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')})
 })
+
 
 app.listen(port, function(){
   console.log('Server is running on', port);
