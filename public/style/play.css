@@ -24,3 +24,34 @@
 .play_text{
   text-align: center;
 }
+
+.orange_text{
+  font-family: Audiowide;
+  font-weight: bolder;
+  font-size: 3.5em;
+  text-decoration: underline;
+  color: rgb(255,153,0);
+}
+
+.green_text{
+  font-family: Audiowide;
+  font-weight: bold;
+  font-size: 2.5em;
+  color: rgba(46, 204, 113,1.0);
+}
+
+.blue_text{
+  font-family: Audiowide;
+  font-weight: bolder;
+  font-size: 2.5em;
+  color: rgb(34,141,255);
+  text-transform: capitalize;
+}
+
+.red_text{
+  font-family: Audiowide;
+  font-weight: bolder;
+  font-size: 2.5em;
+  color: rgba(192, 57, 43,1.0);
+  text-transform: capitalize;
+}

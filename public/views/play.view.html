@@ -5,7 +5,9 @@
         test
       </div>
       <div flex="20" class="play_text">
-        Dealer
+        <div class="red_text">
+          Dealer
+        </div>
       </div>
     </section>
 
@@ -14,26 +16,33 @@
         test
       </div>
       <div flex="20" class="play_text">
-        Player
+        <div class="blue_text">
+          {{$ctrl.userName}}
+        </div>
       </div>
     </section>
 
     <section layout="row" class="play_buttons" layout-align="center center" layout-wrap>
       <div flex="80">
         <md-button ng-disabled="$ctrl.hitButton" class="md-raised md-primary">Hit</md-button>
-        <md-button class="md-fab md-primary" ng-disabled="$ctrl.bet25Bool" ng-click="$ctrl.bet25">
+        <md-button class="md-fab md-primary" ng-disabled="$ctrl.bet25Bool" ng-click="$ctrl.bet25()">
           $25
         </md-button>
-        <md-button class="md-fab md-primary" ng-disabled="$ctrl.bet50Bool" ng-click="$ctrl.bet50">
+        <md-button class="md-fab md-primary" ng-disabled="$ctrl.bet50Bool" ng-click="$ctrl.bet50()">
           $50
-        </md-button><md-button class="md-fab md-primary" ng-disabled="$ctrl.bet100Bool" ng-click="$ctrl.bet100">
+        </md-button><md-button class="md-fab md-primary" ng-disabled="$ctrl.bet100Bool" ng-click="$ctrl.bet100()">
           $100
         </md-button>
         <md-button ng-disabled="$ctrl.standButton" class="md-raised md-primary">Stand</md-button>
 
       </div>
-      <div flex="20" class="play_text">
-        $Current Balance
+      <div flex="20" class="">
+        <div class="orange_text">
+          Total
+        </div>
+        <div class="green_text">
+          ${{$ctrl.userMoney}}
+        </div>
       </div>
     </section>
 

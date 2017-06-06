@@ -15,6 +15,8 @@ angular.module('blackJack')
         if(!res.data.loggedIn){
           $state.go('register');
         }else{
+          vm.userMoney = res.data.moneyLeft;
+          vm.userName = res.data.username;
           vm.hitButton = true;
           vm.standButton = true;
         }
@@ -22,6 +24,14 @@ angular.module('blackJack')
     }
 
     vm.bet25 = function(){
-      $http.post('')
+      var b = {betAmount: 25};
+      $http.post('/task/bet', b)
+      .then(function(res){
+        console.log(res.data);
+      })
+    }
+
+    vm.bet = function(){
+      console.log('bet 50');
     }
   }

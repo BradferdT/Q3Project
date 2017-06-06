@@ -6,7 +6,11 @@ console.log('In register scope');
 
 router.get('/check', function(req, res, next){
   if(req.signedCookies.username){
-    res.send({loggedIn: true});
+    knex.raw('SELECT * FROM users WHERE username = ?', [req.signedCookies.username])
+    .then(function(data){
+      var resObj = {loggedIn: true, moneyLeft: data.rows[0].money, username: data.rows[0].username};
+      res.send(resObj);
+    })
   }else{
     res.send({loggedIn: false});
   }
