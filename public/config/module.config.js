@@ -23,4 +23,14 @@ function config($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/leaderboard',
     component: 'leaderboardComp'
   })
+  .state({
+    name: 'win',
+    url: '/win',
+    component: 'winComp'
+  })
+  .state({
+    name: 'lose',
+    url: '/lose',
+    component: 'loseComp'
+  })
 }

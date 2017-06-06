@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
 
-console.log('In register scope');
 
 router.get('/check', function(req, res, next){
   if(req.signedCookies.username){

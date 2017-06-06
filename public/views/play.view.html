@@ -1,39 +1,50 @@
 <div class="middle">
 
   <section layout="row" class="dealer" layout-align="center center" layout-nowrap>
+
       <div flex>
-        test
+        <div class="dealerCardImages">
+
+        </div>
       </div>
       <div flex="20" class="play_text">
         <div class="red_text">
           Dealer
+        </div>
+        <div class="red_text">
+          {{$ctrl.dealerTotal}}
         </div>
       </div>
     </section>
 
     <section layout="row" class="player" layout-align="center center" layout-wrap>
       <div flex>
-        test
+        <div class="playerCardImages">
+
+        </div>
       </div>
       <div flex="20" class="play_text">
         <div class="blue_text">
           {{$ctrl.userName}}
         </div>
+        <div class="blue_text">
+          {{$ctrl.playerTotal}}
+        </div>
       </div>
     </section>
 
     <section layout="row" class="play_buttons" layout-align="center center" layout-wrap>
-      <div flex="80">
-        <md-button ng-disabled="$ctrl.hitButton" class="md-raised md-primary">Hit</md-button>
-        <md-button class="md-fab md-primary" ng-disabled="$ctrl.bet25Bool" ng-click="$ctrl.bet25()">
+      <div flex="80" layout-align="end center">
+        <md-button ng-disabled="$ctrl.hitButtonBool" class="md-raised md-primary hitNStand hit" ng-click="$ctrl.hit()">Hit</md-button>
+        <md-button class="md-fab md-raised bet25" ng-disabled="$ctrl.bet25Bool" ng-click="$ctrl.bet25()">
           $25
         </md-button>
-        <md-button class="md-fab md-primary" ng-disabled="$ctrl.bet50Bool" ng-click="$ctrl.bet50()">
+        <md-button class="md-fab md-primary bet50" ng-disabled="$ctrl.bet50Bool" ng-click="$ctrl.bet50()">
           $50
-        </md-button><md-button class="md-fab md-primary" ng-disabled="$ctrl.bet100Bool" ng-click="$ctrl.bet100()">
+        </md-button><md-button class="md-fab md-primary md-hue-2 bet100" ng-disabled="$ctrl.bet100Bool" ng-click="$ctrl.bet100()">
           $100
         </md-button>
-        <md-button ng-disabled="$ctrl.standButton" class="md-raised md-primary">Stand</md-button>
+        <md-button ng-disabled="$ctrl.standButtonBool" class="md-raised md-warn hitNStand stand" ng-click="$ctrl.stand()">Stand</md-button>
 
       </div>
       <div flex="20" class="">
