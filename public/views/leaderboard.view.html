@@ -1,4 +1,4 @@
-<div layout="row" class="bottom">
+<div layout="row" class="bottom" ng-if="$ctrl.showStats">
   <div flex="20">
     <div layout="column" layout-align="center center" class="leaderboard_style">
       <div flex class="leaderboard_title">
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div flex="40">
-    <div layout="column" layout-align="center center" class="leaderboard_style leaderboard_stat_pad" ng-if="$ctrl.showStats">
+    <div layout="column" layout-align="center center" class="leaderboard_style leaderboard_stat_pad">
       <div flex>
         Wins: <span class="leaderboard_win">{{$ctrl.wins}}</span>
       </div>
@@ -26,6 +26,33 @@
       <div flex>
         Ties: <span class="leaderboard_tie">{{$ctrl.ties}}</span>
       </div>
+    </div>
+  </div>
+  <div flex="30">
+    <div layout="column" layout-align="start center" class="leaderboard_style">
+      <div class="leaderboard_title">
+        Progress
+      </div>
+      <div>
+        Total Bets: {{$ctrl.totalBets}}
+      </div>
+      <div ng-if="$ctrl.showUp">
+        Up: ${{$ctrl.up}}
+      </div>
+      <div ng-if="$ctrl.showDown">
+        Down: ${{$ctrl.down}}
+      </div>
+      <div ng-if="$ctrl.showOnLeaderboard">
+        You Are on the leaderboard!
+      </div>
+      <div ng-if="$ctrl.showRequiredForLeaderboard">
+        Required For Leaderboard: ${{$ctrl.required}}
+      </div>
+    </div>
+  </div>
+  <div flex="10">
+    <div layout="row" layout-align="end center" class="leaderboard_style">
+      <md-button class="md-raised md-warn quit_btn" ng-click="$ctrl.quit()">Quit</md-button>
     </div>
   </div>
   </div>

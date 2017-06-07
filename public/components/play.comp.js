@@ -50,7 +50,6 @@ angular.module('blackJack')
     }
 
 
-
     vm.bet25 = function(){
       var b = {betAmount: 25};
       callService.setProperty(25);

@@ -16,7 +16,9 @@ function config($stateProvider, $urlRouterProvider, $locationProvider){
   .state({
     name: 'play',
     url: '/play',
-    component: 'playComp'
+    template: `
+          <play-comp></play-comp>
+    <leaderboard-comp></leaderboard-comp>`
   })
   .state({
     name: 'leaderboard',
