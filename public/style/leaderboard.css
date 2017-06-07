@@ -1,4 +1,29 @@
+.leaderboard_style{
+  
+}
 .leaderboard_style > *{
+  font-family: Audiowide;
   color: white;
   font-size: 1.3em;
+}
+
+.leaderboard_title{
+  color: orange;
+  text-decoration: underline;
+}
+
+.leaderboard_win{
+  color: rgba(46, 204, 113,1.0);
+}
+
+.leaderboard_loss{
+  color: rgba(192, 57, 43,1.0);
+}
+
+.leaderboard_tie{
+  color: rgba(241, 196, 15,1.0);
+}
+
+.leaderboard_stat_pad{
+  padding: 16px;
 }

@@ -48,6 +48,57 @@ router.get('/stand', function(req, res, next){
   }
 })
 
+router.post('/win', function(req, res, next){
+  if(req.signedCookies.username){
+    var username = req.signedCookies.username;
+    var dollarsWon = req.body.amount;
+    knex.raw('UPDATE users SET money = (money + ?), wins = (wins + 1) WHERE username = ?', [dollarsWon, username])
+    .then(function(){
+      res.send('Complete')
+    })
+  }
+})
+
+router.post('/tie', function(req, res, next){
+  if(req.signedCookies.username){
+    var username = req.signedCookies.username;
+    var bet = req.body.bet;
+    knex.raw('UPDATE users SET money = (money + ?), ties = (ties + 1) WHERE username = ?', [bet, username])
+    .then(function(){
+      res.send('Complete')
+    })
+  }
+})
+
+router.put('/loss', function(req, res, next){
+  if(req.signedCookies.username){
+    var username = req.signedCookies.username;
+    knex.raw('UPDATE users SET losses = (losses + 1) WHERE username = ?', [username])
+    .then(function(){
+      res.send('Complete')
+    })
+  }
+})
+
+router.delete('/delete', function(req, res, next){
+  console.log('in delete route');
+  if(req.signedCookies.username){
+    var username = req.signedCookies.username;
+    knex.raw('DELETE FROM users WHERE username = ?', [username])
+    .then(function(){
+      res.clearCookie('username');
+      res.send('complete');
+    })
+  }
+})
+
+router.get('/leaderboard', function(req, res, next){
+  knex.raw('SELECT * FROM users ORDER BY money DESC LIMIT 3')
+  .then(function(data){
+    res.send(data.rows);
+  })
+})
+
 
 
 

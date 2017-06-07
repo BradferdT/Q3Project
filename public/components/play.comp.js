@@ -22,9 +22,34 @@ angular.module('blackJack')
           vm.userName = res.data.username;
           vm.hitButtonBool = true;
           vm.standButtonBool = true;
+          if(vm.userMoney >= 100 && vm.userMoney >= 25){
+            console.log('in vm.userMoney <= 100');
+            vm.bet25Bool = false;
+            vm.bet50Bool = false;
+            vm.bet100Bool = false;
+          }else if(vm.userMoney < 100 && vm.userMoney >= 25 && vm.userMoney >= 50){
+            console.log('in vm.userMoney < 100');
+            vm.bet25Bool = false;
+            vm.bet50Bool = false;
+            vm.bet100Bool = true;
+            console.log(vm.bet100Bool);
+          }else if(vm.userMoney < 50 && vm.userMoney >= 25){
+            console.log('in vm.userMoney < 50');
+            vm.bet25Bool = false;
+            vm.bet50Bool = true;
+            vm.bet100Bool = true;
+          }else if(vm.userMoney < 25){
+            console.log('in vm.userMoney < 25');
+            $http.delete('/task/delete')
+            .then(function(){
+              $state.go('register');
+            })
+          }
         }
       })
     }
+
+
 
     vm.bet25 = function(){
       var b = {betAmount: 25};
@@ -50,7 +75,7 @@ angular.module('blackJack')
 
     vm.bet50 = function(){
       var b = {betAmount: 50};
-      callService.setBet(50);
+      callService.setProperty(50);
       $http.post('/task/bet', b)
       .then(function(res){
         vm.userMoney = res.data.moneyLeft;
@@ -72,7 +97,7 @@ angular.module('blackJack')
 
     vm.bet100 = function(){
       var b = {betAmount: 100};
-      callService.setBet(100);
+      callService.setProperty(100);
       $http.post('/task/bet', b)
       .then(function(res){
         vm.userMoney = res.data.moneyLeft;
@@ -186,9 +211,9 @@ angular.module('blackJack')
       vm.hitButtonBool = true;
       if(vm.dealerTotal > 21){
         console.log('in vm.dealerTotal > 21');
-            setTimeout(win, 2000);
+          setTimeout(win, 2000);
       }else if(vm.dealerTotal == vm.playerTotal){
-          console.log('tie');
+          setTimeout(tie, 2000)
       }else if(vm.dealerTotal < vm.playerTotal){
         console.log('in vm.dealerTotal < vm.playerTotal');
           setTimeout(win, 2000);
@@ -207,6 +232,10 @@ angular.module('blackJack')
 
     function lose(){
       $state.go('lose')
+    }
+
+    function tie(){
+      $state.go('tie');
     }
 
   }

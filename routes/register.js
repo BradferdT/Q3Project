@@ -24,4 +24,13 @@ router.post('/', function(req, res, next){
   })
 })
 
+router.get('/userDetails', function(req, res, next){
+  if(req.signedCookies.username){
+    var username = req.signedCookies.username;
+    knex.raw('SELECT * FROM users WHERE username = ?', [username])
+    .then(function(data){
+      res.send(data.rows[0]);
+    })
+  }
+})
 module.exports = router;

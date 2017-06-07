@@ -4,7 +4,9 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('username').unique();
     table.integer('money').defaultTo(500);
-    table.specificType('deck', 'text[]');
+    table.integer('wins').defaultTo(0);
+    table.integer('losses').defaultTo(0);
+    table.integer('ties').defaultTo(0);
     table.boolean('admin').defaultTo(false);
     table.timestamps(true,true);
   })

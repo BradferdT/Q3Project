@@ -4,10 +4,14 @@ angular.module('blackJack')
   controller: controller
 })
 
-  controller.$inject = ['$state'];
-function controller($state){
+  controller.$inject = ['$state', '$http'];
+function controller($state, $http){
   const vm = this;
   vm.goBack = function(){
-    $state.go('play');
+    $http.put('/task/loss')
+    .then(function(){
+      $state.go('play');
+    })
+
   }
 }

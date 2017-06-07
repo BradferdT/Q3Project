@@ -1,21 +1,32 @@
 <div layout="row" class="bottom">
   <div flex="20">
     <div layout="column" layout-align="center center" class="leaderboard_style">
-      <div flex>
+      <div flex class="leaderboard_title">
         LeaderBoard
       </div>
       <div flex>
-        #1 Bradf3rd
+        #1 {{$ctrl.topPlayer}}
       </div>
       <div flex>
-        #2 Bradf3rd
+        #2 {{$ctrl.secondPlayer}}
       </div>
       <div flex>
-        #3 Bradf3rd
+        #3 {{$ctrl.thirdPlayer}}
       </div>
     </div>
   </div>
-  <div flex="20">
-    
+  <div flex="40">
+    <div layout="column" layout-align="center center" class="leaderboard_style leaderboard_stat_pad" ng-if="$ctrl.showStats">
+      <div flex>
+        Wins: <span class="leaderboard_win">{{$ctrl.wins}}</span>
+      </div>
+      <div flex>
+        Losses: <span class="leaderboard_loss">{{$ctrl.losses}}</span>
+      </div>
+      <div flex>
+        Ties: <span class="leaderboard_tie">{{$ctrl.ties}}</span>
+      </div>
+    </div>
+  </div>
   </div>
 </div>

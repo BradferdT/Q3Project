@@ -4,10 +4,18 @@ angular.module('blackJack')
   controller: controller
 })
 
-  controller.$inject = ['$http','callService']
+  controller.$inject = ['$http','callService','$state', '$stateParams']
 
-function controller($http, callService){
+function controller($http, callService, $state, $stateParams){
   const vm = this;
-  var x = callService.getProperty();
-  console.log(x);
+  vm.$onInit = function(){
+    var origBet = callService.getProperty();
+    vm.winnings = (origBet * 2);
+  }
+  vm.collect = function(){
+    $http.post('/task/win', {amount: vm.winnings})
+  .then(function(){
+    $state.go('play');
+  })
+  }
 }

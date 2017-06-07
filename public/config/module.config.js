@@ -33,4 +33,9 @@ function config($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/lose',
     component: 'loseComp'
   })
+  .state({
+    name: 'tie',
+    url: '/tie',
+    component: 'tieComp'
+  })
 }
