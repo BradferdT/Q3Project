@@ -4,9 +4,9 @@ angular.module('blackJack')
   controller: controller
 })
 
-  controller.$inject = ['$http', '$state']
+  controller.$inject = ['$http', '$state', 'callService']
 
-  function controller($http, $state){
+  function controller($http, $state, callService){
     const vm = this;
     vm.$onInit = function(){
       $http.get('/register/check')
@@ -28,6 +28,7 @@ angular.module('blackJack')
 
     vm.bet25 = function(){
       var b = {betAmount: 25};
+      callService.setProperty(25);
       $http.post('/task/bet', b)
       .then(function(res){
         vm.userMoney = res.data.moneyLeft;
@@ -49,6 +50,7 @@ angular.module('blackJack')
 
     vm.bet50 = function(){
       var b = {betAmount: 50};
+      callService.setBet(50);
       $http.post('/task/bet', b)
       .then(function(res){
         vm.userMoney = res.data.moneyLeft;
@@ -70,6 +72,7 @@ angular.module('blackJack')
 
     vm.bet100 = function(){
       var b = {betAmount: 100};
+      callService.setBet(100);
       $http.post('/task/bet', b)
       .then(function(res){
         vm.userMoney = res.data.moneyLeft;
@@ -119,6 +122,8 @@ angular.module('blackJack')
           }
           checkStandCondition();
         })
+      }else{
+        checkStandCondition();
       }
     }
 
@@ -162,10 +167,16 @@ angular.module('blackJack')
 
     function checkPlayerCondition(){
       if(vm.playerTotal == 21 && vm.playerCards.length == 2){
+        vm.hitButtonBool = true;
+        vm.standButtonBool = true;
         setTimeout(win, 2000);
       }else if(vm.playerTotal == 21){
+        vm.hitButtonBool = true;
+        vm.standButtonBool = true;
         setTimeout(win, 2000);
       }else if(vm.playerTotal > 21){
+        vm.hitButtonBool = true;
+        vm.standButtonBool = true;
         setTimeout(lose, 2000);
       }
     }
@@ -174,13 +185,18 @@ angular.module('blackJack')
       vm.standButtonBool = true;
       vm.hitButtonBool = true;
       if(vm.dealerTotal > 21){
+        console.log('in vm.dealerTotal > 21');
             setTimeout(win, 2000);
-      } else if(vm.dealerTotal == vm.playerTotal){
+      }else if(vm.dealerTotal == vm.playerTotal){
           console.log('tie');
       }else if(vm.dealerTotal < vm.playerTotal){
+        console.log('in vm.dealerTotal < vm.playerTotal');
           setTimeout(win, 2000);
-      }else{
+      }else if(vm.dealerTotal > vm.playerTotal){
+          console.log('in vm.dealerTotal > vm.playerTotal');
           setTimeout(lose, 2000);
+      }else{
+        console.log('falsy');
       }
     }
 

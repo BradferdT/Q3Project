@@ -4,6 +4,10 @@ angular.module('blackJack')
   controller: controller
 })
 
-function controller(){
+  controller.$inject = ['$http','callService']
+
+function controller($http, callService){
   const vm = this;
+  var x = callService.getProperty();
+  console.log(x);
 }

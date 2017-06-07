@@ -4,7 +4,10 @@ angular.module('blackJack')
   controller: controller
 })
 
-function controller(){
+  controller.$inject = ['$state'];
+function controller($state){
   const vm = this;
-  
+  vm.goBack = function(){
+    $state.go('play');
+  }
 }

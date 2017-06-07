@@ -66,18 +66,24 @@
 }
 
 .bet25{
+  font-family: Audiowide;
+  font-weight: bold;
   height: 70px !important;
   width: 70px !important;
   border: 3.5px dashed blue;
 }
 
 .bet50{
+  font-family: Audiowide;
+  font-weight: bold;
   height: 90px !important;
   width: 90px !important;
   border: 3.5px dashed white;
 }
 
 .bet100{
+  font-family: Audiowide;
+  font-weight: bold;
   height: 110px !important;
   width: 110px !important;
   border: 3.5px dashed white;
@@ -88,10 +94,76 @@
 }
 
 .hitNStand{
+  font-family: Audiowide;
+  font-weight: bold;
   height: 90px !important;
   width: 115px !important;
 }
 
 .stand{
   color: black !important;
+}
+
+.win{
+  font-size: 10em;
+}
+
+.loss{
+  font-size: 10em;
+}
+
+.collect_btn{
+  height: 100px;
+  width: 300px;
+  font-family: Audiowide;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  -webkit-animation: greenPulse 2s infinite alternate;
+  -moz-animation: greenPulse 2s infinite alternate;
+  animation: greenPulse 2s infinite alternate;
+}
+
+.loss_btn{
+  height: 100px;
+  width: 300px;
+  font-family: Audiowide;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  -webkit-animation: redPulse 2s infinite alternate;
+  -moz-animation: redPulse 2s infinite alternate;
+  animation: redPulse 2s infinite alternate;
+}
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+@-moz-keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+@keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+@-webkit-keyframes redPulse {
+  from { background-color: #e67e22; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #d35400; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #c0392b; -webkit-box-shadow: 0 0 9px #333; }
+}
+@-moz-keyframes redPulse {
+  from { background-color: #e67e22; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #d35400; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #c0392b; -webkit-box-shadow: 0 0 9px #333; }
+}
+@keyframes redPulse {
+  from { background-color: #e67e22; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #d35400; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #c0392b; -webkit-box-shadow: 0 0 9px #333; }
 }
