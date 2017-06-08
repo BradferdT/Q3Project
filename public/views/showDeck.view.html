@@ -1,0 +1,12 @@
+<div class="middle" layout-align="center center">
+  <div class="deckDisplay">
+    Cards in deck: {{$ctrl.cardCount}}
+  </div>
+  <div layout="column" layout-align="center center">
+    <div class="deck_show_size" ng-repeat="item in $ctrl.deck">
+      <div class="deckDisplay">
+    {{$index}} - <img class="deckDisplayImage" src="{{item.img}}">  {{item.name}}
+      </div>
+    </div>
+  </div>
+</div>

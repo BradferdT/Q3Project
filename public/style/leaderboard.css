@@ -5,20 +5,21 @@
 }
 
 .leaderboard_title{
-  color: orange;
+  color: rgba(241, 196, 15,1.0);
+  font-weight: bold;
   text-decoration: underline;
 }
 
 .leaderboard_win{
-  color: rgba(46, 204, 113,1.0);
+  color: rgb(34,141,255);
 }
 
 .leaderboard_loss{
-  color: rgba(192, 57, 43,1.0);
+  color: rgb(192,57,43);
 }
 
 .leaderboard_tie{
-  color: rgba(241, 196, 15,1.0);
+  color: rgb(241, 196, 15);
 }
 
 .leaderboard_stat_pad{
@@ -28,4 +29,9 @@
 .quit_btn{
   font-family: Audiowide;
   height: 110px;
+  background-color: rgb(192,57,43) !important;
+}
+
+.quit_message{
+  padding: 5px 50px 5px 50px;
 }

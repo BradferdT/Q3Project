@@ -33,6 +33,14 @@
   color: rgb(255,153,0);
 }
 
+.yellow_text{
+  font-family: Audiowide;
+  font-weight: bolder;
+  font-size: 3.5em;
+  text-decoration: underline;
+  color: rgba(241, 196, 15,1.0);
+}
+
 .green_text{
   font-family: Audiowide;
   font-weight: bold;
@@ -70,7 +78,7 @@
   font-weight: bold;
   height: 70px !important;
   width: 70px !important;
-  border: 3.5px dashed blue;
+  /*border: 3.5px dashed blue;*/
 }
 
 .bet50{
@@ -78,7 +86,7 @@
   font-weight: bold;
   height: 90px !important;
   width: 90px !important;
-  border: 3.5px dashed white;
+  /*border: 3.5px dashed green;*/
 }
 
 .bet100{
@@ -86,7 +94,7 @@
   font-weight: bold;
   height: 110px !important;
   width: 110px !important;
-  border: 3.5px dashed white;
+  /*border: 3.5px dashed white;*/
 }
 
 .hit{
@@ -152,6 +160,24 @@
   -moz-animation: orangePulse 2s infinite alternate;
   animation: orangePulse 2s infinite alternate;
 }
+
+.underline_text{
+  text-decoration: underline;
+}
+
+.deckDisplay{
+  padding: 10px;
+  font-family: Audiowide;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.deckDisplayImage{
+  height: 35px;
+  width: 35px;
+}
+
 
 @-webkit-keyframes greenPulse {
   from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }

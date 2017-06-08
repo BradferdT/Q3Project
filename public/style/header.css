@@ -10,7 +10,7 @@
 .logo{
   font-size: 10.2em;
   font-weight: bolder;
-  color: rgb(34,141,255);
+  color: rgba(241, 196, 15,1.0);
   font-family: Iceland;
   cursor: pointer;
   /*-webkit-animation: animate 1.5s ease-in-out infinite alternate;

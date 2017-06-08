@@ -190,14 +190,9 @@ angular.module('blackJack')
     }
 
     function checkPlayerCondition(){
-      if(vm.playerTotal == 21 && vm.playerCards.length == 2){
-        vm.hitButtonBool = true;
-        vm.standButtonBool = true;
-        setTimeout(win, 2000);
-      }else if(vm.playerTotal == 21){
-        vm.hitButtonBool = true;
-        vm.standButtonBool = true;
-        setTimeout(win, 2000);
+      if(vm.playerTotal == 21){
+        setTimeout(vm.stand, 600);
+        //vm.stand();
       }else if(vm.playerTotal > 21){
         vm.hitButtonBool = true;
         vm.standButtonBool = true;

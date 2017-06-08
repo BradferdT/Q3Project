@@ -2,16 +2,19 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
 
+var deck = [];
 
 router.post('/bet', function(req, res, next){
   if(req.signedCookies.username && req.body.betAmount){
     var username = req.signedCookies.username;
     var bet = req.body.betAmount;
+    if(deck.length < 20){
+      deck = buildDeck(cards, 6);
+    }
     knex.raw('UPDATE users SET money = (money - ?) WHERE username = ?', [bet, username])
     .then(function(){
       knex.raw('SELECT * FROM users WHERE username = ?', [username])
       .then(function(data){
-        var deck = buildDeck(cards, 1);
         var c1,c2,c3,c4
         c1 = deck.pop();
         c2 = deck.pop();
@@ -29,7 +32,6 @@ router.get('/hit', function(req, res, next){
   if(req.signedCookies.username){
     var deck = buildDeck(cards, 1);
     var newCard = deck.pop();
-    console.log(newCard);
     res.send({newCard: newCard})
   }
 })
@@ -81,7 +83,6 @@ router.put('/loss', function(req, res, next){
 })
 
 router.delete('/delete', function(req, res, next){
-  console.log('in delete route');
   if(req.signedCookies.username){
     var username = req.signedCookies.username;
     knex.raw('DELETE FROM users WHERE username = ?', [username])
@@ -92,11 +93,27 @@ router.delete('/delete', function(req, res, next){
   }
 })
 
+router.delete('/quit', function(req, res, next){
+  if(req.signedCookies.username){
+    res.clearCookie('username');
+    res.send('complete');
+  }
+})
+
 router.get('/leaderboard', function(req, res, next){
   knex.raw('SELECT * FROM users ORDER BY money DESC LIMIT 3')
   .then(function(data){
     res.send(data.rows);
   })
+})
+
+router.get('/deck', function(req, res, next){
+  if(deck.length > 0){
+    res.send(deck);
+  }else{
+    deck = buildDeck(cards, 6);
+    res.send(deck);
+  }
 })
 
 

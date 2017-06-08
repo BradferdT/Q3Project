@@ -49,9 +49,6 @@ angular.module('blackJack')
       }
     }
     vm.quit = function(){
-      $http.delete('/task/delete')
-      .then(function(){
-        $state.go('register');
-      })
+      $state.go('quit');
     }
   }

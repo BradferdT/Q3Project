@@ -40,4 +40,14 @@ function config($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/tie',
     component: 'tieComp'
   })
+  .state({
+    name: 'quit',
+    url: '/quit',
+    component: 'quitComp'
+  })
+  .state({
+    name: 'showDeck',
+    url: '/deck',
+    component: 'showDeck'
+  })
 }
