@@ -1,10 +1,13 @@
 angular.module('blackJack')
 .component('bankrupt', {
-  templateUrl: 'bankrupt.view.html',
+  templateUrl: 'views/bankrupt.view.html',
   controller: controller
 })
 
-  
-  function controller($state){
 
+  function controller($state){
+    const vm = this;
+    vm.goBack = function(){
+      $state.go('register');
+    }
   }

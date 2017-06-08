@@ -41,6 +41,14 @@
   color: rgba(241, 196, 15,1.0);
 }
 
+.white_text{
+  font-family: Audiowide;
+  font-weight: bold;
+  font-size: 3.5em;
+  color: rgba(236, 240, 241,1.0);
+  text-align: center;
+}
+
 .green_text{
   font-family: Audiowide;
   font-weight: bold;

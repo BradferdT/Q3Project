@@ -23,26 +23,21 @@ angular.module('blackJack')
           vm.hitButtonBool = true;
           vm.standButtonBool = true;
           if(vm.userMoney >= 100 && vm.userMoney >= 25){
-            console.log('in vm.userMoney <= 100');
             vm.bet25Bool = false;
             vm.bet50Bool = false;
             vm.bet100Bool = false;
           }else if(vm.userMoney < 100 && vm.userMoney >= 25 && vm.userMoney >= 50){
-            console.log('in vm.userMoney < 100');
             vm.bet25Bool = false;
             vm.bet50Bool = false;
             vm.bet100Bool = true;
-            console.log(vm.bet100Bool);
           }else if(vm.userMoney < 50 && vm.userMoney >= 25){
-            console.log('in vm.userMoney < 50');
             vm.bet25Bool = false;
             vm.bet50Bool = true;
             vm.bet100Bool = true;
           }else if(vm.userMoney < 25){
-            console.log('in vm.userMoney < 25');
             $http.delete('/task/delete')
             .then(function(){
-              $state.go('register');
+              $state.go('bankrupt');
             })
           }
         }
@@ -122,6 +117,7 @@ angular.module('blackJack')
         vm.playerCards.push(res.data.newCard);
         getPlayerTotal();
         placeHitCard();
+        checkAceValChanger(vm.playerCards, vm.playerTotal, 'player');
         checkPlayerCondition();
       })
     }
@@ -131,9 +127,7 @@ angular.module('blackJack')
       angular.element(document.querySelector('.dealerCardImages img:last-child')).remove();
       angular.element(document.querySelector('.dealerCardImages')).append(`
         <img src="${vm.dealerCards[vm.dealerCards.length - 1].img}" class="cardStyle2">`)
-      for(var i = 0; i < vm.dealerCards.length; i++){
-        vm.dealerTotal += vm.dealerCards[i].val;
-      }
+      getDealerTotal();
       if(vm.dealerTotal <= 16){
         $http.get('/task/stand')
         .then(function(res){
@@ -143,10 +137,15 @@ angular.module('blackJack')
               vm.dealerCards.push(res.data[j]);
               placeStandCard();
             }
+            if(vm.dealerTotal > 17){
+              checkAceValChanger(vm.dealerCards, vm.dealerTotal, 'dealer');
+            }
           }
+          checkAceValChanger(vm.dealerCards, vm.dealerTotal, 'dealer');
           checkStandCondition();
         })
       }else{
+        checkAceValChanger(vm.dealerCards, vm.dealerTotal, 'dealer');
         checkStandCondition();
       }
     }
@@ -161,6 +160,13 @@ angular.module('blackJack')
 
     function getDealerTotalStart(){
       vm.dealerTotal += vm.dealerCards[0].val;
+    }
+
+    function getDealerTotal(){
+      vm.dealerTotal = 0;
+      for(var i = 0; i < vm.dealerCards.length; i++){
+        vm.dealerTotal += vm.dealerCards[i].val;
+      }
     }
 
     function placeHitCard(){
@@ -189,14 +195,31 @@ angular.module('blackJack')
       }
     }
 
+    function checkAceValChanger(who, total, string){
+      if(total > 21){
+        for(var i = 0; i < who.length; i++){
+          if(who[i].val == 11){
+            who[i].val = 1;
+            break;
+          }
+      }
+      if(string == 'dealer'){
+        getDealerTotal();
+      }else if(string == 'player'){
+        getPlayerTotal();
+      }
+    }
+    getPlayerTotal();
+  }
+
     function checkPlayerCondition(){
       if(vm.playerTotal == 21){
         setTimeout(vm.stand, 600);
         //vm.stand();
       }else if(vm.playerTotal > 21){
-        vm.hitButtonBool = true;
-        vm.standButtonBool = true;
-        setTimeout(lose, 2000);
+          vm.hitButtonBool = true;
+          vm.standButtonBool = true;
+          setTimeout(lose, 2000);
       }
     }
 
@@ -204,15 +227,12 @@ angular.module('blackJack')
       vm.standButtonBool = true;
       vm.hitButtonBool = true;
       if(vm.dealerTotal > 21){
-        console.log('in vm.dealerTotal > 21');
           setTimeout(win, 2000);
       }else if(vm.dealerTotal == vm.playerTotal){
           setTimeout(tie, 2000)
       }else if(vm.dealerTotal < vm.playerTotal){
-        console.log('in vm.dealerTotal < vm.playerTotal');
           setTimeout(win, 2000);
       }else if(vm.dealerTotal > vm.playerTotal){
-          console.log('in vm.dealerTotal > vm.playerTotal');
           setTimeout(lose, 2000);
       }else{
         console.log('falsy');

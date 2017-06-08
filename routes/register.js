@@ -20,7 +20,10 @@ router.post('/', function(req, res, next){
   knex.raw('INSERT into users (id, username, money) values (DEFAULT, ?, 500)', [username])
   .then(function(){
     res.cookie('username', username, {signed: true});
-    res.send('working');
+    res.send('complete');
+  })
+  .catch(function(err){
+    res.send('error');
   })
 })
 

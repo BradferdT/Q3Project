@@ -13,7 +13,6 @@ angular.module('blackJack')
       if($state.current.name == 'play'){
         $http.get('/register/userDetails')
         .then(function(res){
-          console.log(res.data);
           vm.showStats = true;
           vm.wins = res.data.wins;
           vm.losses = res.data.losses;

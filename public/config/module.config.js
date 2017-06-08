@@ -50,4 +50,9 @@ function config($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/deck',
     component: 'showDeck'
   })
+  .state({
+    name: 'bankrupt',
+    url: '/bankrupt',
+    component: 'bankrupt'
+  })
 }
