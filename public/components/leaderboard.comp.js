@@ -21,9 +21,9 @@ angular.module('blackJack')
           vm.username = res.data.username
           $http.get('/task/leaderboard')
           .then(function(res){
-            vm.topPlayer = res.data[0].username;
-            vm.secondPlayer = res.data[1].username;
-            vm.thirdPlayer = res.data[2].username;
+            vm.topPlayer = res.data[0];
+            vm.secondPlayer = res.data[1];
+            vm.thirdPlayer = res.data[2];
             vm.progress = ((vm.money / res.data[2].money) * 100);
             vm.totalBets = (vm.wins + vm.losses + vm.ties);
             vm.difference = (vm.money - 500);
@@ -34,7 +34,7 @@ angular.module('blackJack')
             }
             if(!vm.showOnLeaderboard){
               vm.showRequiredForLeaderboard = true;
-              vm.required = (res.data[2].money - vm.money);
+              vm.required = ((res.data[2].money + 1) - vm.money);
             }
             if(vm.difference > 0){
               vm.showUp = true;

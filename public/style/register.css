@@ -33,3 +33,14 @@
   border-bottom: 2px solid rgb(34,141,255);
   border-left: 0px;
 }
+
+.instructions{
+  font-family: Audiowide;
+  font-size: 1em;
+  color: rgba(236, 240, 241,1.0);
+  text-align: center;
+}
+
+.how_to{
+  text-align: center;
+}
